@@ -1,0 +1,27 @@
+{% extends 'BlogApplication/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="travelling">
+    <h2>Posty z wybranej kategorii</h2>
+</div>
+    <br><br>
+{% for post in posts %}
+
+    		<a href="/post/{{ post.pk }}"><img src="../../media/{{ post.image }}" class="img-responsive" alt="" /></a>
+
+	<div class="travelling">
+			<div class="col-md-10 travelling1">
+				<h1><a href="/post/{{ post.pk }}">{{ post.title }}</a></h1>
+				<h5>przez <a href="#">{{ post.author }} ,</a><a href="/">{{ post.category.get }} ,</a> {{ post.published_date }} </h5>
+				<p>{{ post.incroduction }}</p>
+			</div>
+{#			<div class="col-md-1 travelling2">#}
+{#				<h3>2</h3>#}
+{#				<a href="#">comments</a>#}
+{#			</div>#}
+				<div class="clearfix"> </div>
+	</div>
+
+{% endfor %}
+
+{% endblock %}

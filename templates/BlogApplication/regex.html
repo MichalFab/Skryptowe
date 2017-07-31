@@ -1,0 +1,62 @@
+{% extends 'BlogApplication/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+    	<div class="about">
+       <center><h1>Poćwicz Wyrażenia Regularne</h1></center>
+        <br><br>
+
+<div class="travelling">
+<div class="form-group">
+
+				<label>Wprowadź słowo do ćwiczeń</label><br>
+				<textarea class="span11 source" id="source" required placeholder="Text"></textarea>
+    </div>
+    <div class="form-group">
+				<label>Wprowadź odpowiedni regex</label>
+				<input class="span11" type="text" id="regexp" required placeholder=".*">
+				<input type="button" class="btn btn-default" value="Wyczyść" id="clear">
+    </div>
+    <div class="form-group">
+				<label class="match-label">Matches</label>
+				<textarea class="span11 matches" id="matches" readonly></textarea>
+    </div>
+			</form>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+<script>
+    $(document).ready(function(){
+
+    	var checkRegex = function(){
+    		var source_data = $('#source').val();
+        	var regular_exp = new RegExp($('#regexp').val().trim());
+        	var matches = source_data.match(regular_exp);
+        	if(matches) {
+        		$('#matches').val(matches);
+        	}
+        	else {
+       			$('#matches').val('Zły Regex');
+        	}
+    	}
+
+        $('#regexp, #source').keyup(function(){
+        	checkRegex();
+        });
+        $('#submit').click(function(){
+        	checkRegex();
+        })
+
+        $('#clear').click(function(){
+            $('textarea, input[type=text]').val('');
+        });
+    });
+	</script>
+
+
+
+
+
+
+	</div>
+
+{% endblock %}
+</div>

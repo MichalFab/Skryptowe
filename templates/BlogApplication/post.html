@@ -1,0 +1,17 @@
+{% extends 'BlogApplication/base.html' %}
+{% load staticfiles %}
+{% block content %}
+	<a href="#"><img src="../../media/{{ post.image }}" class="img-responsive" alt="" /></a>
+			<i class="aeroplane"> </i>
+				<div class="travelling">
+					<div class="col-md-10 travelling1">
+						<h1><a href="/post/{{ post.pk }}">{{ post.title }}</a></h1>
+						<h5>przez <a href="#">{{ post.author }} ,</a> {{ post.published_date }} ,</a><a href="category/{{ post.category.get.id }}">{{ post.category.get }} ,</a></h5>
+					</div>
+
+						<div class="clearfix"> </div>
+							<p>{{ post.text }}</p>
+
+			</div>
+
+{% endblock %}

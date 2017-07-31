@@ -1,0 +1,22 @@
+{% extends 'BlogApplication/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+    	<div class="about">
+		<div class="col-md-5">
+
+		<img src="../media/{{ image_file }}" class="img-responsive" alt="" />
+		</div>
+		<div class="col-md-7">
+				<h2>Lorem ipsum dolor sit amet,consectetuer adipiscing elit,claritatem insitam</h2>
+            <p>{{ introduction }}</p>
+			</div>
+				<div class="clearfix"> </div>
+			<div class="col-md-12">
+                <p>{{ about }}</p>
+			</div>
+			<div class="clearfix"> </div>
+
+	</div>
+
+{% endblock %}

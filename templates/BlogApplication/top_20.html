@@ -1,0 +1,19 @@
+{% extends 'BlogApplication/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+    	<div class="about">
+       <center><h1>TOP 20 książek według wydawnictwa HELION w dniu: {{ date }}</h1></center>
+        <br><br>
+        {%  for book in books %}
+<div class="travelling">
+<center>
+    <a href="{{ book.link }}"><h3>{{ book.title }}</h3></a>
+    <img src="{{ book.image }}"/>
+</center>
+</div>
+
+        {% endfor %}
+	</div>
+
+{% endblock %}
